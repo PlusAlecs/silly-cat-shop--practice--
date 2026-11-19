@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    background: #111;
+    padding: 10px;
+    display: flex;
+}
+
+.header .logo img {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+}
+
+.title {
+    color:white;
+    align-self: center;
+    margin: 10px;
+}
+
+.header .navbar {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header .navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 15px;
+
+    &:hover {
+        color: yellow;
+    }
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.main-content .cat-pill-container {
+    padding: 10px;
+    width: 100%;
+}
+
+.main-content .cat-pill-container .cat-pill {
+    background: #c5c5c5;
+    box-shadow: 2px 5px 15px 5px rgba(38, 38, 38, 0.57);
+    margin: 10px;
+    border-radius: 6px;
+    height: 100%;
+
+    transition: ease-in-out 0.1s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1) rotate(2deg);
+    }
+}
+
+.main-content .cat-pill .cat-pill-header img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.cat-pill-body {
+    margin: 10px;
+}
+
+.main-content .cat-pill .cat-pill-body .cat-pill-title {
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+}
+
+.main-content .cat-pill .cat-pill-body .cat-pill-price {
+    text-align: right;
+}
+
+@keyframes jumping {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.33, 0.67, 0.67, 1); /* sube frenando */
+    }
+    50% {
+        transform: translateY(-50px);
+        animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0.33); /* cae acelerando */
+    }
+    100% {transform: translateY(0);}
+}
+
+.cat-pill-container .cat-pill.jumping {
+    background: #ed6161;
+
+    animation-name: jumping;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@media screen and (min-width: 576px) {
+    .main-content .cat-pill-container{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main-content .cat-pill-container{
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-content .cat-pill-container{
+        width: 25%;
+    }
+}
+
+
