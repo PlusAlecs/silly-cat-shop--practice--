@@ -112,6 +112,20 @@
     animation-name: jumping;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    position: relative;
+
+    &:hover::after{
+        content: "";
+        position: absolute;
+        top: -20px;                 /* encima de la tarjeta, ajústalo a tu gusto */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 120px;
+        background: url("assets/patpat.gif") center / contain no-repeat;
+        pointer-events: none;       /* para que no bloquee el click sobre el gato */
+        z-index: 10;
+    }
 }
 
 .footer {
