@@ -3,17 +3,19 @@ const gatos = document.querySelectorAll(".cat-pill");
 let tempId;
 
 function intentarSaltar() {
+    const disponibles = [...gatos].filter(gato => !gato.classList.contains("jumping"));
+
     for(const gato of gatos){
-        if (!gato.classList.contains("jumping") && Math.random() < 1/gatos.length) {
+        if (!gato.classList.contains("jumping") && Math.random() < 1/disponibles.length) {
             gato.classList.add("jumping");
             break;
         }
     }
 
-  tempId = setTimeout(intentarSaltar, Math.random() * 2000 + 1000); // entre 1 y 3 s
+  tempId = setTimeout(intentarSaltar, Math.random() * 15000); // entre 0 y 15 s
 }
 
-setTimeout(intentarSaltar, 10000); // entre 1 y 3 s
+setTimeout(intentarSaltar, 15000);
 
 gatos.forEach(gato => {
   gato.addEventListener("click", () => {
@@ -25,6 +27,6 @@ gatos.forEach(gato => {
         }
     }
     clearTimeout(tempId);
-    tempId = setTimeout(intentarSaltar, Math.random() * 5000 + 5000); // entre 5 y 10 s
+    tempId = setTimeout(intentarSaltar, Math.random() * 10000 + 10000); // entre 10 y 20 s
   });
 });
