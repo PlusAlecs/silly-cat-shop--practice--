@@ -19,7 +19,7 @@ function intentarSaltar() {
   tempId = setTimeout(intentarSaltar, Math.random() * 15000); // entre 0 y 15 s
 }
 
-setInterval(() => {
+const intervalId = setInterval(() => {
   if(timer > 0){
     timer--;
     timerText.textContent = timer;
@@ -29,6 +29,8 @@ setInterval(() => {
   }
     
 }, 1000);
+
+clearInterval(intervalId);
 
 setTimeout(intentarSaltar, 15000);
 
