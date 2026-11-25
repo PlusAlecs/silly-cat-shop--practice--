@@ -16,7 +16,7 @@ function intentarSaltar() {
         }
     }
 
-  tempId = setTimeout(intentarSaltar, Math.random() * 15000); // entre 0 y 15 s
+  tempId = setTimeout(intentarSaltar, Math.random() * 10000); // entre 0 y 10 s
 }
 
 const intervalId = setInterval(() => {
@@ -30,9 +30,9 @@ const intervalId = setInterval(() => {
     
 }, 1000);
 
-clearInterval(intervalId);
+//clearInterval(intervalId);
 
-setTimeout(intentarSaltar, 15000);
+setTimeout(intentarSaltar, 5000);
 
 gatos.forEach(gato => {
   gato.addEventListener("click", () => {
@@ -44,17 +44,26 @@ gatos.forEach(gato => {
         }
     }
     clearTimeout(tempId);
-    tempId = setTimeout(intentarSaltar, Math.random() * 10000 + 10000); // entre 10 y 20 s
+    tempId = setTimeout(intentarSaltar, Math.random() * 10000 + 5000); // entre 5 y 15 s
   });
 });
 
 tranqAll.addEventListener("click", () =>{
-  if (timer <= 0)
-  {
-    gatos.forEach(gato => {
-      gato.classList.remove("jumping");
+  let check = false;
+
+  gatos.forEach(gato => {
+      if(gato.classList.contains("jumping")){
+        check = true;
+      }
     })
 
-    timer = maxTimer;
-  }
+  if(check)
+    if (timer <= 0)
+    {
+      gatos.forEach(gato => {
+        gato.classList.remove("jumping");
+      })
+
+      timer = maxTimer;
+    }
 })
